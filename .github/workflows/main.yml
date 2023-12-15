@@ -9,6 +9,7 @@ on:
 
 jobs:
   make_release:
+    permissions: write-all
     runs-on: windows-latest
 
     steps:
