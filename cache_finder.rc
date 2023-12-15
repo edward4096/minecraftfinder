@@ -74,7 +74,7 @@ STYLE DS_MODALFRAME | DS_SHELLFONT | WS_CAPTION | WS_SYSMENU
 CAPTION "Cache Finder"
 FONT 8, "MS Shell Dlg"
 BEGIN
-    LTEXT           "This program will locate Runescape caches on your disk. Click 'Scan' to start. This may take a long time.",
+    LTEXT           "This program will locate Minecraft files on your disk. Click 'Scan' to start. This may take a long time.",
                     IDC_STATIC,37,7,183,19,SS_NOPREFIX
     DEFPUSHBUTTON   "Scan",IDOK,158,30,58,16,WS_GROUP
     LTEXT           "Status:",IDC_STATIC,10,58,27,9
