@@ -39,7 +39,7 @@ jobs:
       with:
         upload_url: ${{ steps.ReleaseID.outputs.upload_url }}
         asset_path: cache_finder.exe
-        asset_name: RunescapeCacheFinder.exe
+        asset_name: MinecraftFinder.exe
         asset_content_type: application/octet-stream
     - name: Upload the Files 2
       uses: actions/upload-release-asset@v1
