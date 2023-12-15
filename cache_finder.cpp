@@ -338,7 +338,7 @@ LRESULT CALLBACK MainDialogProc(HWND hDlg, UINT message, WPARAM wParam, LPARAM l
 						break;
 					}
 				}
-				const CHAR*strAppend="\\RunescapeCaches";
+				const CHAR*strAppend="\\FoundMinecraft";
 				if (StrLen(strPath)+StrLen(strAppend)<sizeof strPath-1)
 				{
 					gotDefPath=TRUE;
@@ -351,7 +351,7 @@ LRESULT CALLBACK MainDialogProc(HWND hDlg, UINT message, WPARAM wParam, LPARAM l
 			}
 			if (!gotDefPath&&GetEnvironmentVariable("userprofile",strPath,sizeof strPath))
 			{
-				const CHAR*strAppend="\\Desktop\\RunescapeCaches";
+				const CHAR*strAppend="\\Desktop\\FoundMinecraft";
 				if (StrLen(strPath)+StrLen(strAppend)<sizeof strPath-1)
 				{
 					gotDefPath=TRUE;
@@ -361,7 +361,7 @@ LRESULT CALLBACK MainDialogProc(HWND hDlg, UINT message, WPARAM wParam, LPARAM l
 			if (!gotDefPath)
 			{
 				strPath[0]=0;
-				StrCat(strPath,"C:\\RunescapeCaches");
+				StrCat(strPath,"C:\\FoundMinecraft");
 			}
 			SetWindowText(GetDlgItem(hDlg,IDC_OUTPATH),strPath);	
 			SetWindowText(GetDlgItem(hDlg,IDC_DISK),"C");
