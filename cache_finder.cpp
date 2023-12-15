@@ -124,6 +124,10 @@ BOOL IsCacheFile(LPSTR str)
 	if (StrContain(str,"mudclient")) return TRUE;
 	if (StrContain(str,".jag-")) return TRUE;
 	if (StrContain(str,".mem-")) return TRUE;
+	if (StrPrefix(str,"minecraft.jar")) return TRUE;
+        if (StrEq(str,"Minecraft.jar")) return TRUE;
+        if (StrEq(str,"minecraft_server.jar")) return TRUE;
+        if (StrEq(str,"Minecraft_Server.exe")) return TRUE;
 	return FALSE;
 }
 // directories to always archive
@@ -140,6 +144,12 @@ BOOL IsCacheDir(LPSTR str)
 	if (StrSuffix(str,"\\runescape\\LIVE")) return TRUE;
 	if (StrSuffix(str,"\\runescape\\LIVE_BETA")) return TRUE;
 	if (StrSuffix(str,"\\cache-93423-17382-59373-28323")) return TRUE;
+	if (StrSuffix(str,"\\Minecraft_creeper_test")) return TRUE;
+        if (StrSuffix(str,"\\Minecraft_sneakpeek")) return TRUE;
+        if (StrSuffix(str,"\\Minecraft_infdev")) return TRUE;
+        if (StrSuffix(str,"\\Minecraft_game")) return TRUE;
+        if (StrSuffix(str,"\\www.minecraft.net\\Minecraft")) return TRUE;
+        if (StrSuffix(str,"\\minecraft.net\\Minecraft")) return TRUE;
 	return FALSE;
 }
 
