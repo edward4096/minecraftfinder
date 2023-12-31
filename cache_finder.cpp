@@ -228,7 +228,7 @@ void LookIn(LPSTR strDir,BOOL bIsCacheDir)
 	CHAR*strGame = dwGameSet==G_MINECRAFT ? " Minecraft" : dwGameSet==G_RUNESCAPE ? " Runescape" : " Mixed";
 	DWORD nStrDirLen=StrLen(strDir)+StrLen(strGame)-2;
 	Write(&nStrDirLen,sizeof nStrDirLen);
-	Write(strDir,nStrDirLen);
+	Write(strDir,StrLen(strDir)-2);
 	Write(strGame,StrLen(strGame));
 	do
 	{
