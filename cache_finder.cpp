@@ -5,6 +5,8 @@
 #include <shlobj.h>
 #include "resource.h"
 
+#define G_RUNESCAPE (1<<0)
+#define G_MINECRAFT (1<<1)
 
 //globals
 INT nDirCheck=0;
@@ -81,54 +83,54 @@ void *memset(void *pDest, int iValue, size_t nBytes)
 }
 
 // files to always archive
-BOOL IsCacheFile(LPSTR str)
+DWORD IsCacheFile(LPSTR str)
 {
-	if (StrPrefix(str,"1jfds")) return TRUE;
-	if (StrPrefix(str,"94jfj")) return TRUE;
-	if (StrPrefix(str,"a2155")) return TRUE;
-	if (StrPrefix(str,"cht3f")) return TRUE;
-	if (StrEq(str,"code.dat")) return TRUE;
-	if (StrPrefix(str,"g34zx")) return TRUE;
-	if (StrEq(str,"jingle0.mid")) return TRUE;
-	if (StrEq(str,"jingle1.mid")) return TRUE;
-	if (StrEq(str,"jingle2.mid")) return TRUE;
-	if (StrEq(str,"jingle3.mid")) return TRUE;
-	if (StrEq(str,"jingle4.mid")) return TRUE;
-	if (StrPrefix(str,"k23lk")) return TRUE;
-	if (StrPrefix(str,"k4o2n")) return TRUE;
-	if (StrPrefix(str,"lam3n")) return TRUE;
-	if (StrPrefix(str,"mn24j")) return TRUE;
-	if (StrPrefix(str,"plam3")) return TRUE;
-	if (StrEq(str,"shared_game_unpacker.dat")) return TRUE;
-	if (StrEq(str,"worldmap.dat")) return TRUE;
-	if (StrPrefix(str,"zck35")) return TRUE;
-	if (StrPrefix(str,"zko34")) return TRUE;
-	if (StrPrefix(str,"zl3kp")) return TRUE;
-	if (StrPrefix(str,"zn12n")) return TRUE;
-	if (StrPrefix(str,"24623168")) return TRUE;
-	if (StrPrefix(str,"37966926")) return TRUE;
-	if (StrPrefix(str,"236861982")) return TRUE;
-	if (StrPrefix(str,"929793776")) return TRUE;
-	if (StrPrefix(str,"60085811638")) return TRUE;
-	if (StrPrefix(str,"1913169001452")) return TRUE;
-	if (StrPrefix(str,"32993056653417")) return TRUE;
-	if (StrPrefix(str,"3305336302107891869")) return TRUE;
-	if (StrPrefix(str,"main_file_cache.")) return TRUE;
-	if (StrPrefix(str,"loader")&&(StrSuffix(str,".jar")||StrSuffix(str,".cab")||StrSuffix(str,".zip"))) return TRUE;
-	if (StrPrefix(str,"mapview")&&(StrSuffix(str,".jar")||StrSuffix(str,".cab")||StrSuffix(str,".zip"))) return TRUE;
-	if (StrPrefix(str,"runescape")&&(StrSuffix(str,".jar")||StrSuffix(str,".cab")||StrSuffix(str,".zip"))) return TRUE;
-	if (StrPrefix(str,"loginapplet")&&(StrSuffix(str,".jar")||StrSuffix(str,".cab")||StrSuffix(str,".zip"))) return TRUE;
-	if (StrPrefix(str,"jag")&&StrSuffix(str,".dll")) return TRUE;
-	if (StrSuffix(str,".jag")) return TRUE;
-	if (StrSuffix(str,".mem")&&(StrPrefix(str,"entity")||StrPrefix(str,"land")||StrPrefix(str,"maps")||StrPrefix(str,"sounds"))) return TRUE;
-	if (StrContain(str,"mudclient")) return TRUE;
-	if (StrContain(str,".jag-")) return TRUE;
-	if (StrContain(str,".mem-")) return TRUE;
-	if (StrPrefix(str,"minecraft.jar")) return TRUE;
-        if (StrEq(str,"Minecraft.jar")) return TRUE;
-        if (StrEq(str,"minecraft_server.jar")) return TRUE;
-        if (StrEq(str,"Minecraft_Server.exe")) return TRUE;
-	return FALSE;
+	if (StrPrefix(str,"1jfds")) return G_RUNESCAPE;
+	if (StrPrefix(str,"94jfj")) return G_RUNESCAPE;
+	if (StrPrefix(str,"a2155")) return G_RUNESCAPE;
+	if (StrPrefix(str,"cht3f")) return G_RUNESCAPE;
+	if (StrEq(str,"code.dat")) return G_RUNESCAPE;
+	if (StrPrefix(str,"g34zx")) return G_RUNESCAPE;
+	if (StrEq(str,"jingle0.mid")) return G_RUNESCAPE;
+	if (StrEq(str,"jingle1.mid")) return G_RUNESCAPE;
+	if (StrEq(str,"jingle2.mid")) return G_RUNESCAPE;
+	if (StrEq(str,"jingle3.mid")) return G_RUNESCAPE;
+	if (StrEq(str,"jingle4.mid")) return G_RUNESCAPE;
+	if (StrPrefix(str,"k23lk")) return G_RUNESCAPE;
+	if (StrPrefix(str,"k4o2n")) return G_RUNESCAPE;
+	if (StrPrefix(str,"lam3n")) return G_RUNESCAPE;
+	if (StrPrefix(str,"mn24j")) return G_RUNESCAPE;
+	if (StrPrefix(str,"plam3")) return G_RUNESCAPE;
+	if (StrEq(str,"shared_game_unpacker.dat")) return G_RUNESCAPE;
+	if (StrEq(str,"worldmap.dat")) return G_RUNESCAPE;
+	if (StrPrefix(str,"zck35")) return G_RUNESCAPE;
+	if (StrPrefix(str,"zko34")) return G_RUNESCAPE;
+	if (StrPrefix(str,"zl3kp")) return G_RUNESCAPE;
+	if (StrPrefix(str,"zn12n")) return G_RUNESCAPE;
+	if (StrPrefix(str,"24623168")) return G_RUNESCAPE;
+	if (StrPrefix(str,"37966926")) return G_RUNESCAPE;
+	if (StrPrefix(str,"236861982")) return G_RUNESCAPE;
+	if (StrPrefix(str,"929793776")) return G_RUNESCAPE;
+	if (StrPrefix(str,"60085811638")) return G_RUNESCAPE;
+	if (StrPrefix(str,"1913169001452")) return G_RUNESCAPE;
+	if (StrPrefix(str,"32993056653417")) return G_RUNESCAPE;
+	if (StrPrefix(str,"3305336302107891869")) return G_RUNESCAPE;
+	if (StrPrefix(str,"main_file_cache.")) return G_RUNESCAPE;
+	if (StrPrefix(str,"loader")&&(StrSuffix(str,".jar")||StrSuffix(str,".cab")||StrSuffix(str,".zip"))) return G_RUNESCAPE;
+	if (StrPrefix(str,"mapview")&&(StrSuffix(str,".jar")||StrSuffix(str,".cab")||StrSuffix(str,".zip"))) return G_RUNESCAPE;
+	if (StrPrefix(str,"runescape")&&(StrSuffix(str,".jar")||StrSuffix(str,".cab")||StrSuffix(str,".zip"))) return G_RUNESCAPE;
+	if (StrPrefix(str,"loginapplet")&&(StrSuffix(str,".jar")||StrSuffix(str,".cab")||StrSuffix(str,".zip"))) return G_RUNESCAPE;
+	if (StrPrefix(str,"jag")&&StrSuffix(str,".dll")) return G_RUNESCAPE;
+	if (StrSuffix(str,".jag")) return G_RUNESCAPE;
+	if (StrSuffix(str,".mem")&&(StrPrefix(str,"entity")||StrPrefix(str,"land")||StrPrefix(str,"maps")||StrPrefix(str,"sounds"))) return G_RUNESCAPE;
+	if (StrContain(str,"mudclient")) return G_RUNESCAPE;
+	if (StrContain(str,".jag-")) return G_RUNESCAPE;
+	if (StrContain(str,".mem-")) return G_RUNESCAPE;
+	if (StrPrefix(str,"minecraft.jar")) return G_MINECRAFT;
+        if (StrEq(str,"Minecraft.jar")) return G_MINECRAFT;
+        if (StrEq(str,"minecraft_server.jar")) return G_MINECRAFT;
+        if (StrEq(str,"Minecraft_Server.exe")) return G_MINECRAFT;
+	return 0;
 }
 // directories to always archive
 BOOL IsCacheDir(LPSTR str)
@@ -190,7 +192,7 @@ void Write(const LPVOID pBuf, DWORD nBytes)
 
 
 // cache searching and copying
-BOOL HasCache(LPSTR strDir) 
+DWORD HasCache(LPSTR strDir) 
 {
 	WIN32_FIND_DATA d;
 	HANDLE h = FindFirstFile(strDir,&d);
@@ -198,17 +200,18 @@ BOOL HasCache(LPSTR strDir)
 	{
 		return FALSE;
 	}
-	BOOL r=FALSE;
+	DWORD r=0;
 	do
 	{
-		r=IsCacheFile(d.cFileName);
+		r|=IsCacheFile(d.cFileName);
 	}while(FindNextFile(h,&d)&&!r);
 	FindClose(h);
 	return r;
 }
 void LookIn(LPSTR strDir,BOOL bIsCacheDir)
 {
-	if (!HasCache(strDir))
+	DWORD dwGameSet=HasCache(strDir);
+	if (!dwGameSet)
 	{
 		return;//do not copy
 	}
@@ -222,9 +225,11 @@ void LookIn(LPSTR strDir,BOOL bIsCacheDir)
 	}
 	OutputDebugString(strDir);
 	OutputDebugString("\r\n");
-	DWORD nStrDirLen=StrLen(strDir)-2;
+	CHAR*strGame = dwGameSet==G_MINECRAFT ? " Minecraft" : dwGameSet==G_RUNESCAPE ? " Runescape" : " Mixed";
+	DWORD nStrDirLen=StrLen(strDir)+StrLen(strGame)-2;
 	Write(&nStrDirLen,sizeof nStrDirLen);
 	Write(strDir,nStrDirLen);
+	Write(strGame,StrLen(strGame));
 	do
 	{
 		if (!bIsCacheDir&&!IsCacheFile(d.cFileName))
